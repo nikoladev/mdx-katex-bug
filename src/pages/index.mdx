@@ -1,0 +1,42 @@
+import {
+  KatexBlock,
+  KatexInline,
+} from '../components/Katex.jsx'
+
+"Simple" Katex works:
+
+$$
+  a^2 + b^2 = c^2
+$$
+
+Also inline $a^2 + b^2 = c^2$ as you can see.
+
+---
+
+"Complex" Katex does not work:
+
+```
+$$
+\begin{aligned}
+  \bar{x} &= \dfrac{0+1+2+ \ldots +8}{9} = 3.56 \\
+  \bar{y} &= \dfrac{23.5+25+ \ldots +37.5}{9}=30
+\end{aligned}
+$$
+```
+
+> _(⚠️ remove the surrounding backticks to see the error)_
+
+---
+
+This is a workaround for the complex Katex:
+
+<KatexBlock
+  formula={`
+    \\begin{aligned}
+      \\bar{x} &= \\dfrac{0+1+2+ \\ldots +8}{9} = 3.56 \\\\
+      \\bar{y} &= \\dfrac{23.5+25+ \\ldots +37.5}{9}=30
+    \\end{aligned}
+  `}
+/>
+
+(It also requires a slightly different input: every backslash needs to be duplicated)
